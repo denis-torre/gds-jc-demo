@@ -26,8 +26,8 @@ import job_manager
 P = 'acc_GuccioneLab'
 
 # R
-def run_r_job(func_name, func_input, outfile, W = '00:30', GB = 5, n = 1, q = 'express', **kwargs):
-	job_manager.run_r_job(func_name, func_input, outfile, r_source='pipeline/scripts/rnaseq-pipeline.R', P=P, W = W, GB = GB, n = n, q = q, mkdir=True, **kwargs)
+def run_r_job(func_name, func_input, outfile, W = '00:30', GB = 5, n = 1, q = 'express', modules=['R/3.5.3', 'python/3.7.3'], **kwargs):
+	job_manager.run_r_job(func_name, func_input, outfile, r_source='pipeline/scripts/rnaseq-pipeline.R', P=P, W = W, GB = GB, n = n, q = q, modules = modules, mkdir=True, **kwargs)
 
 #######################################################
 #######################################################
@@ -54,6 +54,54 @@ def readGeneCounts(infile, outfile):
 
 	# Run
 	run_r_job('read_gene_counts', infile, outfile, run_locally=True)
+
+#######################################################
+########## Step 2. Get differentially expressed genes
+#######################################################
+# Input: output of readGeneCounts function (SummarizedExperiment file in .rda file)
+# Output: multiple TSV files with differential genes, one per comparison
+# Type of operation: 1-to-many
+# Ruffus decorator used: subdivide
+
+@subdivide(readGeneCounts,
+		   regex(r'(.*).rda'),
+		   r'data/*_vs_*-deseq2.tsv',
+		   r'data/{comparison[0]}_vs_{comparison[1]}-differential_genes.tsv')
+
+def runDifferentialExpression(infile, outfiles, outfileRoot):
+
+	# Define comparisons
+	comparisons = [
+		['DMSO', 'LSD1'],
+		['DMSO', 'MC4455'],
+		['DMSO', 'MC4491']
+	]
+
+	# Loop through comparisons
+	for comparison in comparisons:
+
+		# Get outfile name
+		outfile = outfileRoot.format(**locals())
+
+		# Run
+		run_r_job('run_differential_expression', infile, outfile, run_locally=True)
+
+##########################################################
+########## Step 3. Plot differential expression results
+##########################################################
+# Input: output of runDifferentialExpression function (.tsv files)
+# Output: one image per comparison
+# Type of operation: 1-to-1
+# Ruffus decorator used: transform
+
+@transform(runDifferentialExpression,
+		   suffix('.tsv'),
+		   '.png')
+
+def plotDifferentialExpressionResults(infile, outfile):
+
+	# Run
+	run_r_job('plot_differential_expression_results', infile, outfile, run_locally=True)
 
 ##################################################
 ##################################################
