@@ -65,10 +65,6 @@ def run_py_job(func_name, func_input, outfile, W = W, GB = GB, n = n, q = q, **k
 # Pipeline args
 options = cmdline.get_argparse().parse_args()
 
-##### 2. Genome indices #####
-# Open JSON
-
-##### 3. Variables #####
 
 #######################################################
 #######################################################
