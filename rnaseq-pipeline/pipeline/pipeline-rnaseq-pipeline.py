@@ -65,7 +65,7 @@ def readGeneCounts(infile, outfile):
 
 @subdivide(readGeneCounts,
 		   regex(r'(.*).rda'),
-		   r'data/*_vs_*-deseq2.tsv',
+		   r'data/*_vs_*-differential_genes.tsv',
 		   r'data/{comparison[0]}_vs_{comparison[1]}-differential_genes.tsv')
 
 def runDifferentialExpression(infile, outfiles, outfileRoot):
@@ -102,6 +102,22 @@ def plotDifferentialExpressionResults(infile, outfile):
 
 	# Run
 	run_r_job('plot_differential_expression_results', infile, outfile, run_locally=True)
+
+##########################################################
+########## Step 4. Merge differential expression results
+##########################################################
+# Input: output of runDifferentialExpression function (.tsv files)
+# Output: a venn diagram showing overlap between DEGs
+# Type of operation: many-to-1
+# Ruffus decorator used: merge
+
+@merge(runDifferentialExpression,
+	   'data/differential_genes-venn_diagram.png')
+
+def makeVennDiagram(infiles, outfile):
+
+	# Run
+	run_r_job('make_venn_diagram', infiles, outfile, run_locally=True)
 
 ##################################################
 ##################################################
