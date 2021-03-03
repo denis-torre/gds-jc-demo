@@ -106,7 +106,7 @@ def runDifferentialExpression(infile, outfiles, outfileRoot):
 def volcanoPlot(infile, outfile):
 
 	# Print
-	print('##### Step 3. Creating volcano plots...')
+	print('##### Step 3. Creating volcano plot ({outfile})...'.format(**locals()))
 
 	# Run
 	run_r_job('volcano_plot', infile, outfile, run_locally=True)
@@ -127,7 +127,7 @@ def volcanoPlot(infile, outfile):
 def plotVennDiagram(infiles, outfile):
 
 	# Print
-	print('##### Step 4. Plotting venn diagram...')
+	print('##### Step 4. Plotting venn diagram ({outfile})...'.format(**locals()))
 
 	# Run
 	run_r_job('plot_venn_diagram', infiles, outfile, run_locally=True)
