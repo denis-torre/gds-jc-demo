@@ -21,7 +21,7 @@ sys.path.append('pipeline/scripts')
 import job_manager
 
 ### 3. Function to run R jobs
-# Minerva queue to use
+# Minerva queue to use while option run_locally=False
 # NOTE: insert your lab's queue to run jobs yourself!
 P = 'acc_YOURQUEUE'
 
