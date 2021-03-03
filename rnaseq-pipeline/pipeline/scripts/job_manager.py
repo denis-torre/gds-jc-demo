@@ -158,7 +158,7 @@ def run_r_job(func_name, func_input, outfile, r_source, additional_params=None, 
         additional_params = ','.join([str(x) for x in additional_params])
 
     # Command
-    cmd_str = """Rscript /hpc/users/torred23/pipelines/support/run.R --func_name={func_name} --r_source={r_source} --func_input="{func_input}" --outfile={outfile}""".format(**locals())
+    cmd_str = """Rscript pipeline/scripts/run.R --func_name={func_name} --r_source={r_source} --func_input="{func_input}" --outfile={outfile}""".format(**locals())
 
     # Additional parameters
     if additional_params:
