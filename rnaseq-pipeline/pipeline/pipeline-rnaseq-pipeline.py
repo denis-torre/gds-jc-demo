@@ -88,6 +88,7 @@ def runDifferentialExpression(infile, outfiles, outfileRoot):
 		outfile = outfileRoot.format(**locals())
 
 		# Run
+		print('### Doing {comparison[0]} vs {comparison[1]}...'.format(**locals()))
 		run_r_job('run_differential_expression', infile, outfile, run_locally=True)
 
 ##########################################################
