@@ -18,7 +18,7 @@ The tutorial consists of the following steps:
 
 ![VSCode](images/command-palette.png)
 
-5. Search "Connect to Host" and select the option (either will work)
+5. Search "Connect to Host" and select either option (use current or new window)
 
 ![VSCode](images/ssh-connect-1.png)
 
@@ -26,11 +26,20 @@ The tutorial consists of the following steps:
 
 ![VSCode](images/ssh-connect-2.png)
 
-If these are not available, select "Add New SSH Host..." and enter your ssh command below (e.g. `ssh YOUR_USERNAME@hpc.mssm.edu`):
+If these are not available, select "Add New SSH Host..." and enter the ssh command as you would using Terminal (e.g. `ssh YOUR_USERNAME@chimera.hpc.mssm.edu`):
 
 ![VSCode](images/ssh-connect-3.png)
 
-7. Enter your password followed by your VIP code, as with logging in via Terminal.
+Enter your password followed by your VIP code, as with logging in via Terminal.
 
-![VSCode](images/command-palette.png)
+7. You are now connected to Minerva through SSH. To better interact with the filesystem, click on "Open folder..." to open a desired directory (e.g. your work folder `/sc/arion/work/YOUR_USERNAME`).
 
+![VSCode](images/vscode-minerva-1.png)
+
+8. You can now interact with the file system using the File Explorer on the left.
+
+![VSCode](images/vscode-minerva-2.png)
+
+9. Finally, select View > Open Terminal from the top menu. The terminal is connected to Minerva and can be used to run code, load modules, etc.
+
+![VSCode](images/vscode-minerva-3.png)
