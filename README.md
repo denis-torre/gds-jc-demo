@@ -68,6 +68,22 @@ Enter your password followed by your VIP code, as with logging in via Terminal.
 
 ## Part 3. Run a sample RNA-Seq pipeline built using ruffus
 
-The `rnaseq-pipeline` directory in the cloned GitHub repository contains a basic RNA-Seq analysis pipeline built using Ruffus. The pipeline begins with a sample text file with gene counts (`counts.tsv`), runs a simple differential expression analysis across different comparisons, and generates some basic plots to display the results. Here is a schematic representation of the workflow:
+The `rnaseq-pipeline` directory contains a basic RNA-Seq analysis pipeline built using Ruffus. The pipeline begins with a sample text file with gene counts (`counts.tsv`), runs a simple differential expression analysis across different comparisons, and generates some plots to display the results.
+
+
+Here is a schematic representation of the workflow:
 
 ![image](images/pipeline-workflow.png)
+
+In order to run the pipeline, the following steps need to be performed.
+
+1. Using the terminal, change your working directory to `rnaseq-pipeline` using `cd rnaseq-pipeline` (or other command depending on your current directory):
+
+![image](images/pipeline-1.png)
+
+2. Load the default R and Python modules
+
+```
+ml R
+ml python
+```
