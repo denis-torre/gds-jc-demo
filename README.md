@@ -81,9 +81,17 @@ In order to run the pipeline, the following steps need to be performed.
 
 ![image](images/pipeline-1.png)
 
-2. Load the default R and Python modules
+2. Load the default R and Python modules:
 
 ```
-ml R
-ml python
+module load R
+module load python
 ```
+
+3. Run the pipeline using the command below. The `--target_tasks` option allows to specify the name of the function to run.
+
+```
+python pipeline/pipeline-rnaseq-pipeline.py --target_tasks plotVennDiagram
+```
+
+Here, we specify the name of the last function in the pipeline (`plotVennDiagram`). Ruffus will automatically run all previous functions in the pipeline and save the output in the `rnaseq-pipeline/data` directory. Alternatively, each step can be run individually by specifying each function's name using the `--target_tasks` parameter.
