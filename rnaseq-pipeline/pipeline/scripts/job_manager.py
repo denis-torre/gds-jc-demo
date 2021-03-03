@@ -101,7 +101,7 @@ def run_job(cmd_str, outfile, modules=[], conda_env=False, workdir=os.getcwd(), 
             print('Output file {outfile} already exists, not running job.'.format(**locals()))
         else:
             if run_locally == True:
-                print('Doing {}...'.format(outfile))
+                # print('Doing {}...'.format(outfile))
                 os.system(cmd_str)
             else:
                 time.sleep(0.03)
