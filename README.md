@@ -1,7 +1,7 @@
 # GDS JC 04/03 - Interactive Demo
 The tutorial consists of the following steps:
 1. [Access Minerva using Visual Studio Code](#part-1-access-minerva-using-visual-studio-code) (https://code.visualstudio.com/)
-2. [Clone this GitHub repository to your directory](#part-2-clone-a-sample-github-repository-to-your-directory) (https://github.com/denis-torre/gds-jc-demo)
+2. [Clone this GitHub repository to your directory](#part-2-clone-this-github-repository-to-your-directory) (https://github.com/denis-torre/gds-jc-demo)
 3. [Run a sample RNA-Seq pipeline built using ruffus](#part-3-run-a-sample-rna-seq-pipeline-built-using-ruffus) (https://cgat-ruffus.readthedocs.io/en/latest/)
 
 ## Part 1. Access Minerva using Visual Studio Code
@@ -44,7 +44,7 @@ Enter your password followed by your VIP code, as with logging in via Terminal.
 
 ![image](images/vscode-minerva-3.png)
 
-## Part 2. Clone a sample GitHub repository to your directory
+## Part 2. Clone this GitHub repository to your directory
 
 1. Open the Manage tab (click on the gear at the bottom left) and select "Command Palette"
 
