@@ -53,7 +53,7 @@ counts_file = 'data/counts.tsv'
 def loadGeneCounts(infile, outfile):
 
 	# Run
-	run_r_job('read_gene_counts', infile, outfile, run_locally=True)
+	run_r_job('load_gene_counts', infile, outfile, run_locally=True)
 
 #######################################################
 ########## Step 2. Get differentially expressed genes
