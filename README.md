@@ -54,7 +54,7 @@ Enter your password followed by your VIP code, as with logging in via Terminal.
 
 ![image](images/git-clone-1.png)
 
-3. Insert the path of this GitHub repository (https://github.com/denis-torre/gds-jc-demo), and select a directory to download it in (e.g. your work folder `/sc/arion/work/YOUR_USERNAME`).
+3. Insert the path of this GitHub repository (https://github.com/denis-torre/gds-jc-demo), select "Clone from URL", and choose a directory to download it in (e.g. your work folder `/sc/arion/work/YOUR_USERNAME`).
 
 ![image](images/git-clone-2.png)
 
@@ -62,7 +62,7 @@ Enter your password followed by your VIP code, as with logging in via Terminal.
 
 ![image](images/git-open.png)
 
-5. You can now explore the repository using the file explorer:
+5. You can now explore the repository using the file explorer. Open the `rnaseq-pipeline/pipeline/pipeline-rnaseq.py` file to explore the main pipeline structure.
 
 ![image](images/git-repo.png)
 
@@ -77,8 +77,8 @@ Here is a schematic representation of the workflow:
 
 In order to run the pipeline, the following steps need to be performed.
 
-1. Using the terminal, change your working directory to `rnaseq-pipeline` using `cd rnaseq-pipeline` (or other command depending on your current directory):
-
+1. Using the terminal, change your working directory to `rnaseq-pipeline` using `cd rnaseq-pipeline` (or other command depending on your current directory). If your terminal is not open, select View > Terminal from the top menu.
+ 
 ![image](images/pipeline-1.png)
 
 2. Load the default R and Python modules:
