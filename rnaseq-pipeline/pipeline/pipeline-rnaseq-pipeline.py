@@ -23,7 +23,7 @@ import job_manager
 ### 3. Function to run R jobs
 # Minerva queue to use
 # NOTE: insert your lab's queue to run jobs yourself!
-P = 'acc_GuccioneLab'
+P = 'acc_YOURQUEUE'
 
 # R
 def run_r_job(func_name, func_input, outfile, W = '00:30', GB = 5, n = 1, q = 'express', modules=['R/3.5.3', 'python/3.7.3'], **kwargs):
