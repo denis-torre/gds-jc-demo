@@ -91,7 +91,8 @@ module load python
 3. Run the pipeline using the command below. The `--target_tasks` option allows to specify the name of the function to run.
 
 ```
-python pipeline/pipeline-rnaseq-pipeline.py --target_tasks plotVennDiagram
+# Make sure you are in the right directory - e.g. `/sc/arion/work/YOUR_USERNAME/gds-jc-demo/rnaseq-pipeline`
+python pipeline/pipeline-rnaseq.py --target_tasks plotVennDiagram
 ```
 
 Here, we specify the name of the last function in the pipeline (`plotVennDiagram`). Ruffus will automatically run all previous functions in the pipeline and save the output in the `rnaseq-pipeline/data` directory. Alternatively, each step can be run individually by specifying each function's name using the `--target_tasks` parameter.
