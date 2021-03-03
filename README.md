@@ -1,8 +1,8 @@
 # GDS JC 04/03 - Interactive Demo
 The tutorial consists of the following steps:
-1. Access Minerva using Visual Studio Code (https://code.visualstudio.com/)
-2. Clone this GitHub repository to your directory (https://github.com/denis-torre/gds-jc-demo)
-3. Run a sample RNA-Seq pipeline built using ruffus (https://cgat-ruffus.readthedocs.io/en/latest/)
+1. [Access Minerva using Visual Studio Code](#-part-1--access-minerva-using-visual-studio-code) (https://code.visualstudio.com/)
+2. [Clone this GitHub repository to your directory](#-part-2.-clone-a-sample-github-repository-to-your-directory) (https://github.com/denis-torre/gds-jc-demo)
+3. [Run a sample RNA-Seq pipeline built using ruffus](#-part-3.-run-a-sample-rna-seq-pipeline-built-using-ruffus) (https://cgat-ruffus.readthedocs.io/en/latest/)
 
 ## Part 1. Access Minerva using Visual Studio Code
 1. Download Visual Studio Code at https://code.visualstudio.com/Download
@@ -95,3 +95,7 @@ python pipeline/pipeline-rnaseq-pipeline.py --target_tasks plotVennDiagram
 ```
 
 Here, we specify the name of the last function in the pipeline (`plotVennDiagram`). Ruffus will automatically run all previous functions in the pipeline and save the output in the `rnaseq-pipeline/data` directory. Alternatively, each step can be run individually by specifying each function's name using the `--target_tasks` parameter.
+
+4. Explore the results in the `rnaseq-pipeline/data` directory. VS Code can display images and PDF files directly from within the interface, with no need to copy them to your local machine. ([vscode-pdf](https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf) extension is required for viewing PDFs).
+
+![image](images/volcano-plot.png)
