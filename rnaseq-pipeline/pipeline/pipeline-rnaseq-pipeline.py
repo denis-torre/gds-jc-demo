@@ -50,7 +50,7 @@ counts_file = 'data/counts.tsv'
 		   suffix('.tsv'),
 		   '.rda')
 
-def readGeneCounts(infile, outfile):
+def loadGeneCounts(infile, outfile):
 
 	# Run
 	run_r_job('read_gene_counts', infile, outfile, run_locally=True)
@@ -58,12 +58,12 @@ def readGeneCounts(infile, outfile):
 #######################################################
 ########## Step 2. Get differentially expressed genes
 #######################################################
-# Input: output of readGeneCounts function (SummarizedExperiment file in .rda file)
+# Input: output of loadGeneCounts function (SummarizedExperiment file in .rda file)
 # Output: multiple TSV files with differential genes, one per comparison
 # Type of operation: 1-to-many
 # Ruffus decorator used: subdivide
 
-@subdivide(readGeneCounts,
+@subdivide(loadGeneCounts,
 		   regex(r'(.*).rda'),
 		   r'data/*_vs_*-differential_genes.tsv',
 		   r'data/{comparison[0]}_vs_{comparison[1]}-differential_genes.tsv')
@@ -87,7 +87,7 @@ def runDifferentialExpression(infile, outfiles, outfileRoot):
 		run_r_job('run_differential_expression', infile, outfile, run_locally=True)
 
 ##########################################################
-########## Step 3. Plot differential expression results
+########## Step 3. Volcano plot
 ##########################################################
 # Input: output of runDifferentialExpression function (.tsv files)
 # Output: one image per comparison
@@ -101,10 +101,10 @@ def runDifferentialExpression(infile, outfiles, outfileRoot):
 def volcanoPlot(infile, outfile):
 
 	# Run
-	run_r_job('plot_differential_expression_results', infile, outfile, run_locally=True)
+	run_r_job('volcano_plot', infile, outfile, run_locally=True)
 
 ##########################################################
-########## Step 4. Merge differential expression results
+########## Step 4. Plot Venn diagram
 ##########################################################
 # Input: output of runDifferentialExpression function (.tsv files)
 # Output: a venn diagram showing overlap between DEGs
@@ -119,7 +119,7 @@ def volcanoPlot(infile, outfile):
 def plotVennDiagram(infiles, outfile):
 
 	# Run
-	run_r_job('make_venn_diagram', infiles, outfile, run_locally=True)
+	run_r_job('plot_venn_diagram', infiles, outfile, run_locally=True)
 
 ##################################################
 ##################################################

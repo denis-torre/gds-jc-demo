@@ -19,7 +19,7 @@ suppressPackageStartupMessages(require(VennDiagram))
 ########## Step 1. Read gene counts
 #############################################
 
-read_gene_counts <- function(infile, outfile) {
+load_gene_counts <- function(infile, outfile) {
 
     # Read counts
     count_matrix <- fread(infile) %>% column_to_rownames('gene_id') %>% as.matrix
@@ -65,10 +65,10 @@ run_differential_expression <- function(infile, outfile) {
 }
 
 ##########################################################
-########## Step 3. Plot differential expression results
+########## Step 3. Volcano plot
 ##########################################################
 
-plot_differential_expression_results <- function(infile, outfile) {
+volcano_plot <- function(infile, outfile) {
 
     # Read results
     deseq_dataframe <- fread(infile)
@@ -95,10 +95,10 @@ plot_differential_expression_results <- function(infile, outfile) {
 }
 
 ##########################################################
-########## Step 4. Merge differential expression results
+########## Step 4. Plot Venn diagram
 ##########################################################
 
-make_venn_diagram <- function(infiles, outfile) {
+plot_venn_diagram <- function(infiles, outfile) {
 
     # Read data
     deseq_dataframe <- lapply(infiles, function(x) { fread(x) %>% mutate(comparison=gsub('.*/(.*)-.*', '\\1', x)) }) %>% bind_rows
