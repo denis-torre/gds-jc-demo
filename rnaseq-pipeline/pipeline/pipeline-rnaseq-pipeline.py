@@ -23,7 +23,7 @@ import job_manager
 ### 3. Function to run R jobs
 # Minerva queue to use
 # NOTE: insert your lab's queue to run jobs yourself!
-P = 'acc_GuccioneLab'
+P = 'acc_YOURQUEUE'
 
 # R
 def run_r_job(func_name, func_input, outfile, W = '00:30', GB = 5, n = 1, q = 'express', modules=['R/3.5.3', 'python/3.7.3'], **kwargs):
@@ -44,7 +44,7 @@ def run_r_job(func_name, func_input, outfile, W = '00:30', GB = 5, n = 1, q = 'e
 # Ruffus decorator used: transform
 
 # Input file path
-counts_file = 'data/test.tsv'
+counts_file = 'data/counts.tsv'
 
 @transform(counts_file,
 		   suffix('.tsv'),
@@ -98,7 +98,7 @@ def runDifferentialExpression(infile, outfiles, outfileRoot):
 		   suffix('.tsv'),
 		   '.png')
 
-def plotDifferentialExpressionResults(infile, outfile):
+def volcanoPlot(infile, outfile):
 
 	# Run
 	run_r_job('plot_differential_expression_results', infile, outfile, run_locally=True)
@@ -114,7 +114,7 @@ def plotDifferentialExpressionResults(infile, outfile):
 @merge(runDifferentialExpression,
 	   'data/differential_genes-venn_diagram.png')
 
-def makeVennDiagram(infiles, outfile):
+def plotVennDiagram(infiles, outfile):
 
 	# Run
 	run_r_job('make_venn_diagram', infiles, outfile, run_locally=True)
