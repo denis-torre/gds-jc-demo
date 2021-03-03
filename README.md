@@ -98,6 +98,6 @@ Here, we specify the name of the last function in the pipeline (`plotVennDiagram
 
 NOTE: make sure you are in the correct directory (e.g. `/sc/arion/work/YOUR_USERNAME/gds-jc-demo/rnaseq-pipeline`)
 
-4. Explore the results in the `rnaseq-pipeline/data` directory. VS Code can display images and PDF files directly from within the interface, with no need to copy them to your local machine. ([vscode-pdf](https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf) extension is required for viewing PDFs).
+4. Explore the results in the `rnaseq-pipeline/data` directory. VS Code can display images and PDF files directly from within the interface, with no need to copy them to your local machine ([vscode-pdf](https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf) extension is required for viewing PDFs).
 
 ![image](images/volcano-plot.png)
