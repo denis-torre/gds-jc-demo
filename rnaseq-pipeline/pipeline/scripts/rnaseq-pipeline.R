@@ -25,7 +25,7 @@ read_gene_counts <- function(infile, outfile) {
     count_matrix <- fread(infile) %>% column_to_rownames('gene_id') %>% as.matrix
 
     # Get sample info
-    metadata_dataframe <- data.frame(sample_name=colnames(count_matrix)) %>% mutate(treatment=gsub('(.*)_.', '\\1', sample_name)) %>% column_to_rownames('sample_name')
+    metadata_dataframe <- data.frame(sample_name=colnames(count_matrix)) %>% mutate(treatment=gsub('(.*)_.*', '\\1', sample_name)) %>% column_to_rownames('sample_name')
 
     # Create DDS
     dds <- DESeqDataSetFromMatrix(countData = count_matrix, colData = metadata_dataframe, design = ~treatment)

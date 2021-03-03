@@ -72,9 +72,9 @@ def runDifferentialExpression(infile, outfiles, outfileRoot):
 
 	# Define comparisons
 	comparisons = [
-		['DMSO', 'LSD1'],
-		['DMSO', 'MC4455'],
-		['DMSO', 'MC4491']
+		['DMSO', 'DrugA'],
+		['DMSO', 'DrugB'],
+		['DMSO', 'DrugC']
 	]
 
 	# Loop through comparisons
@@ -110,6 +110,8 @@ def volcanoPlot(infile, outfile):
 # Output: a venn diagram showing overlap between DEGs
 # Type of operation: many-to-1
 # Ruffus decorator used: merge
+
+@follows(volcanoPlot) # requires volcanoPlot to be run before
 
 @merge(runDifferentialExpression,
 	   'data/differential_genes-venn_diagram.png')

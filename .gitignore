@@ -2,3 +2,6 @@ testdir
 *.sqlite
 *.pyc
 logs
+*/data/*_genes.tsv
+*/data/*.rda
+*/data/*.png
