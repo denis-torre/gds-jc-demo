@@ -101,3 +101,7 @@ NOTE: make sure you are in the correct directory (e.g. `/sc/arion/work/YOUR_USER
 4. Explore the results in the `rnaseq-pipeline/data` directory. VS Code can display images and PDF files directly from within the interface, with no need to copy them to your local machine ([vscode-pdf](https://marketplace.visualstudio.com/items?itemName=tomoki1207.pdf) extension is required for viewing PDFs).
 
 ![image](images/volcano-plot.png)
+
+5. Using the [GitLens extension](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens), the entire history of the repository can be interactively explored directly through Visual Studio Code (Note: this currently does not work on Minerva, as the default git version installed is outdated. The screenshot below was taken from a local session.)
+
+![image](images/gitlens.png)
