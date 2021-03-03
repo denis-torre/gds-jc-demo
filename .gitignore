@@ -5,3 +5,4 @@ logs
 */data/*_genes.tsv
 */data/*.rda
 */data/*.png
+__pycache__
