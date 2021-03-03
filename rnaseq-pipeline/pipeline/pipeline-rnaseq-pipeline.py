@@ -53,6 +53,7 @@ counts_file = 'data/counts.tsv'
 def loadGeneCounts(infile, outfile):
 
 	# Run
+	print('##### Step 1. Reading gene counts...')
 	run_r_job('load_gene_counts', infile, outfile, run_locally=True)
 
 #######################################################
@@ -69,6 +70,9 @@ def loadGeneCounts(infile, outfile):
 		   r'data/{comparison[0]}_vs_{comparison[1]}-differential_genes.tsv')
 
 def runDifferentialExpression(infile, outfiles, outfileRoot):
+
+	# Print
+	print('##### Step 2. Running differential expression...')
 
 	# Define comparisons
 	comparisons = [
@@ -100,6 +104,9 @@ def runDifferentialExpression(infile, outfiles, outfileRoot):
 
 def volcanoPlot(infile, outfile):
 
+	# Print
+	print('##### Step 3. Creating volcano plots...')
+
 	# Run
 	run_r_job('volcano_plot', infile, outfile, run_locally=True)
 
@@ -117,6 +124,9 @@ def volcanoPlot(infile, outfile):
 	   'data/differential_genes-venn_diagram.png')
 
 def plotVennDiagram(infiles, outfile):
+
+	# Print
+	print('##### Step 4. Plotting venn diagram...')
 
 	# Run
 	run_r_job('plot_venn_diagram', infiles, outfile, run_locally=True)
