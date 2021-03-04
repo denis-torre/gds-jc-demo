@@ -132,6 +132,27 @@ def plotVennDiagram(infiles, outfile):
 	# Run
 	run_r_job('plot_venn_diagram', infiles, outfile, run_locally=True)
 
+##########################################################
+########## Step 5. Add new feature
+##########################################################
+# Input: output of runDifferentialExpression function (.tsv files)
+# Output: a venn diagram showing overlap between DEGs
+# Type of operation: many-to-1
+# Ruffus decorator used: merge
+
+@follows(volcanoPlot) # requires volcanoPlot to be run before
+
+@merge(runDifferentialExpression,
+	   'data/differential_genes-venn_diagram.png')
+
+def testPipelineStep(infiles, outfile):
+
+	# Print
+	print('##### Step 4. Plotting venn diagram ({outfile})...'.format(**locals()))
+
+	# Run
+	run_r_job('plot_venn_diagram', infiles, outfile, run_locally=True)
+
 ##################################################
 ##################################################
 ########## Run pipeline
