@@ -4,6 +4,8 @@ The tutorial consists of the following steps:
 2. [Clone this GitHub repository to your directory](#part-2-clone-this-github-repository-to-your-directory) (https://github.com/denis-torre/gds-jc-demo)
 3. [Run a sample RNA-Seq pipeline built using ruffus](#part-3-run-a-sample-rna-seq-pipeline-built-using-ruffus) (https://cgat-ruffus.readthedocs.io/en/latest/)
 
+Full presentation available at https://docs.google.com/presentation/d/1nOn15aq2bRukDW6HVWAKCvYJutviG01JTg5_fZQERVI/edit?usp=sharing
+
 ## Part 1. Access Minerva using Visual Studio Code
 1. Download Visual Studio Code at https://code.visualstudio.com/Download
 2. Open Visual Studio Code and access the "Extensions" tab on the left
